@@ -1,0 +1,134 @@
+/*
+Sean Straus
+Straus21
+*/
+
+body{
+	font-size:8pt;
+	background-image:url("http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/bannerbg.png"),url("http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/background.png");
+	background-repeat: repeat-x,repeat;
+}
+	
+div#banner{
+	position:absolute;
+	top:0;
+	width:100%;
+}
+
+div#banner-interior {
+	height:50px;
+	width:795px;
+	margin:0 auto;
+	padding:0px;
+	border:0px;
+}
+					
+div#columns{
+	margin:0px;
+	padding:8px;
+	width: 534px;
+	float:left;
+	overflow:auto;
+}
+
+div#column{
+	margin: 1%;
+	float: left;
+	width:47%;
+}
+
+div#footer{
+	padding-left: 50%;
+	background-color:#A2B964;
+}
+
+div#main{
+	overflow: auto;
+	position:relative;
+	top:125px;
+	left:0 auto;
+	right:0 auto;
+	width:800px;
+	border-style:solid;
+	padding:0;
+	border-color:gray;
+	border-radius:20px;
+	margin:0 auto;
+}
+
+div#reviews{
+	background-image: url("http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/rbg.png");
+	background-repeat: repeat-x;
+	float:left;
+	padding:0px;
+	margin:0px;
+}
+
+div#reviewbar{
+	overflow: hidden;
+	padding: 0px;
+	font-size: 48pt;
+	font-weight: bold;
+	color: red;
+}
+
+div#sidebar{
+	background-color:#A2B964;
+	float:left;
+	width:250px;
+	margin:0px;
+	padding:0px;
+}
+
+div#sidebar-interior{
+	background-color:#A2B964;
+	padding:10px;
+}
+
+div#sidebar-interior dt{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+div#validators{
+	position:fixed;
+	right:0;
+	bottom:0;
+	opacity:0.5
+}
+
+h1	{
+	text-align:center;
+	font-size:24pt;
+	font-family:verdana,tahoma,sans-serif;
+	text-shadow: 3px 3px #999999;
+	font-style:bold;
+}
+	
+#p1{
+	border-style:solid;
+	padding:8px;
+	border-width:2px;
+	border-color:#333333;
+	border-radius:10px;
+	font-weight:bold;
+	background-color:#E8DC9B;
+	overflow: auto;
+}
+
+#p1 img {
+	vertical-align: top;
+	margin-right: 5px;
+	float: left;
+}
+	
+#p2{
+	overflow: auto;
+}
+
+#p2 img{
+	vertical-align: bottom;
+	margin-right: 5px;
+	float: left;
+}
+

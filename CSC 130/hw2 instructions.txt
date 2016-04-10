@@ -1,0 +1,87 @@
+Design and implement a class named Circle2D that contains:
+1.Two data fields named x and y that specify the center of the circle. 
+2.A data field radius with get/set methods.
+3.A constructor (i.e., __init__ method) that creates a circle with specified x, y, and radius. Use the default value 0 for all parameters.
+4.An __str__ method that return a string representation of the form "Circle with center (x, y) and radius radius", where x, y, and radius will be replaced by the circle's actual values of the center and raduis. For example, on a circle object with center at (2, 3) and radius 10, this method will return the string "Circle with center (2, 3) and radius 10". 
+5.A getX() and getY() methods..  
+6.A method getArea() that returns the area of the circle.
+7.A method getPerimeter() that returns the perimeter of the circle.
+8.A method containsPoint(x, y) that returns True if the specified point (x, y) is inside this circle. (Hint: see Figure 1.)
+
+ Figure 1. Point P is inside the circle.
+
+9.A method contains(circle2D) that returns True if the specified circle is inside this circle. (Hint: see Figure 2.)
+
+ Figure 2. A circle inside another circle.
+
+10.A method overlaps(circle2D) that returns True if the specified circle overlaps with this circle. (Hint: see Figure 3.)
+
+ Figure 3. A circle inside another circle.
+
+11.Implement the  _ _contains_ _(self, anotherCircle) method that returns True if anotherCircle is contained in this circle. The _ _contains_ _(self, item) special method is used to implement the membership test operator in. It should return true if item is in self, and false otherwise.  
+12.Implement the _ _cmp_ _,  _ _eq_ _, and  _ _ne_ _ methods that compare two circles based on their radius.
+
+Use the following main function to test your class. 
+
+def main():
+    x = input("Enter x coordinate for the center of circle 1: ")
+    y = input("Enter y coordinate for the center of circle 1: ")
+    r = input("Enter the radius of circle 1: ")
+    c1 = Circle2D(x, y, r)
+    print c1
+    
+    x = input("\nEnter x coordinate for the center of circle 2: ")
+    y = input("Enter y coordinate for the center of circle 2: ")
+    r = input("Enter the radius of circle 2: ")
+    c2 = Circle2D(x, y, r)
+    print c2
+
+    #Test the getArea() and getPerimeter() methods
+    print "\nArea of a %s is %0.2f" % (c1, c1.getArea())
+    print "Perimeter of a %s is %0.2f" % (c1, c1.getPerimeter())
+
+    print "\nArea of a %s is %0.2f" % (c2, c2.getArea())
+    print "Perimeter of a %s is %0.2f" % (c2, c2.getPerimeter())
+    #-------------------
+
+    #Test containsPoint() method
+    print "\nResult of c1.containsPoint(c2.getX( ), c2.getY( )) is",
+    print c1.containsPoint(c2.getX( ), c2.getY( ))
+
+    #Test contains() method
+    if c1.contains(c2):
+        print "\n%s contains %s" % (c1, c2)
+    else: 
+        print "\n%s does not contain %s" % (c1, c2)
+                                          
+    print "\nResult of c2.contains(c1) is",
+    print c2.contains(c1)
+    #----------------
+
+    #Test overlap() method
+    if c1.overlaps(c2):
+        print "\n%s overlaps with %s" % (c1,c2)
+    else: 
+        print "\n%s does not overlap with %s" % (c1,c2)
+    #--------------
+
+    #Test overloaded in operator                                     
+    print "\nResult of c2 in c1 is", c2 in c1                     
+
+    #Testing overloaded comparison and equality operators
+    #Something similar to this
+    print "\nTesting overloaded comparison operators..."
+    print "c1 == c2?", c1 == c2
+    print "c1 != c2?", c1 != c2
+    print "c1 < c2?", c1 < c2
+    print "c1 <= c2?", c1 <= c2
+    print "c1 > c2?", c1 > c2
+    print "c1 >= c2?", c1 >= c2
+    print 'c1 == "Hello"?', c1 == "Hello"
+    print 'c1 != "Hello"?', c1 != "Hello"
+    
+main()
+
+
+
+Please give your program the name hw2.py. Use comments to document and explain your code where needed. Make sure to upload an electronic copy of your source code in a folder called HW\hw2 in your CSC 131 eccentric folder. Make sure to also turn in a stapled hard copy of the source code in class on the due date. Write your name and eccentric folder name at the top of your file. 

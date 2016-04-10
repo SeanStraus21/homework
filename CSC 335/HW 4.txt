@@ -1,0 +1,131 @@
+/*
+Sean Straus
+Straus21
+*/
+
+
+create table employee
+	(
+	employee_name varchar(32),
+	street varchar(32),
+	city varchar(32),
+	primary key (employee_name)
+	);
+
+create table works
+	(
+	employee_name varchar(32),
+	company_name varchar(32),
+	salary numeric(12,2),
+	primary key (employee_name)
+	);
+create table company
+	(
+	company_name varchar(32),
+	city varchar(32),
+    primary key(company_name)
+	);
+create table manages
+	(
+	employee_name varchar(32),
+	manager_name varchar(32),)
+	);
+	
+insert into employee values ("joe blow", "main street 21", "springfield");
+insert into employee values ("john doe", "grand ave 22", "racoon city");
+insert into employee values ("haggis mcmutton", "king street", "springfield");
+insert into employee values ("jim brown", "farm road 23", "kansas city");
+insert into employee values ("albert wesker", "farm road 23", "kansas city");
+insert into employee values ("william berkin", "farm road 23", "kansas city");
+
+insert into company values("umbrella inc.", "racoon city");
+insert into company values("First Bank Corporation", "springfield");
+
+insert into works values("joe blow", "First Bank Corporation", '400');
+insert into works values("haggis mcmutton", "First Bank Corporation", '800');
+insert into works values("john doe", "umbrella inc.", '400');
+insert into works values("jim brown", "umbrella inc.", '400');
+insert into works values("albert wesker", "umbrella inc.", '800');
+insert into works values("william berkin", "umbrella inc.", '800');
+
+insert into manages values("joe blow","haggis mcmutton");
+insert into manages values("haggis mcmutton","haggis mcmutton");
+insert into manages values("john doe","albert wesker");
+insert into manages values("jim brown","albert wesker");
+insert into manages values("william berkin","albert wesker");
+insert into manages values("albert wesker","albert wesker");
+
+/*
+1.
+*/
+select employee_name
+from manages
+where manager_name = "" or manager_name = NULL
+;
+
+/*
+2.
+remove the tuples where the employee is not in the list of people with tyson
+*/
+select manager_name
+from manages
+where employee_name is in (select manager_name,employee_name from manages where manager_name = "Tyson" )
+;
+
+/*
+3.
+for each company, output the name of the company and the number of managers
+*/
+select company, (count(manager_name))
+from manages 
+	inner join works
+	on company.manager_name = works.employee_name
+group by company
+;
+
+/*
+4.
+
+*/
+select employee_name, salary
+from manages join works on manages.manager_name = works.employee_name
+group by manager_name
+;
+/*
+5.
+create tuples with manager, manager salary
+*/
+with manager_salaries as
+	(
+	select employee_name, salary
+	from 
+	where 
+	)
+select employee_name
+from works 
+	join 
+	(
+	manager_salaries join manages on manager_salaries.employee_name = manages.manager_name
+	)
+	on employee_name
+where salary > manager_salary
+;
+
+/*
+6.
+*/
+/*a*/
+update table works
+	set salary = salary*1.1
+	where company_name = "First Bank Corporation"
+	;
+/*b*/
+update table works 
+	set salary = salary*1.1
+	where company_name = "First Bank Corporation" and works.employee_name is in (select manager_name from manages)
+	;
+/*c*/
+delete 
+from works
+where company_name = "Small Bank Corporation"
+;

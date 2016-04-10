@@ -1,0 +1,118 @@
+***************************************
+LANGUAGES AND MACHINES
+CSC - 333
+NOTES
+***************************************
+
+DAY 1:
+ - “We, the unwilling, led by the unknowing, are doing the impossible for the ungrateful. We have done so much, for so long, with so little, we are now qualified to do anything with nothing.” - Konstantin Josef Jireček
+ - Don't skip classes
+
+DAY 2:
+ - Properties of Programming Languages
+ - orthogonality: small number
+ 
+DAY 3:
+ - bus: connection between memory and cpu
+ - von neumann architecture: simple, single bus
+ - features
+	 - Imperative: variables, assignment,iteration
+	 - fetch-execute-cycle
+		 - intialize program counter
+		 - repeat forever
+		 - fetch the instruction
+		 - increment counter
+		 - decode instruction
+		 - execute instruction
+		 - end repeat
+ - types of programming languages Version I
+	 - imperative
+		 - C, Java, Perl, Javascript etc.
+	 - functional
+		 - lisp,scheme, ml, F# etc.
+	 - logic
+		 - prolog
+	 - markup-programming hybrid
+		 - "not a real category" 
+ - types of programming languages Version II
+	 - Declarative
+		 - functional
+		 - dataflow
+		 - logic,constraint-based
+		 - template-based - XSLT
+	 - Imperative
+		 - 
+ - Layers of a Computer
+	 - high level language
+	 - assembly language
+	 - machine language
+ - OOP concepts
+	 - abstraction
+	 - inheritance
+	 - encapsulation
+	 - polymorphism
+Day 4:
+ - MISSED
+
+Day 5:
+ - LTE architecture
+ - Inheritance
+	 - example: PolicyUser has children LocalUser and RoamingUser
+	 - 
+Day 6:
+ - something or other I missed
+
+Day 7:
+ - Override vs. Overload
+	 - override: same signature, different implementation
+	 - overload: different signature, different implementation
+ - Functional Programming
+	 - provides a uniform view of programs as functions
+	 - treats functions as data
+	 - provides prevention of side effects
+ - benefits
+	 - parallel execution
+	 - efficient on multicore hardware architectures
+	 - have mature application libraries
+ - syntax
+	 - a program can be presented as an equivalent to a mathematical function
+		y=f(x)  OR  f:X -> Y
+ - Imperative vs Functional 
+	 - in math, variables always stand for actual values
+	 - in math, there are no concepts of memory location and assignment
+	 - in imperative programming languages, variables are memory locations.
+	 - lack of assignment makes loops impossible
+	 - no notion of the internal state of a function
+	 - a function's value cannot depend on the order of evaluation of its arguments
+ - referential transparency: the property where a function's value depends only on the values of its variables
+ - functions are first-class data values
+	 - functions can be computed by other functions.
+	 - functions can be parameters to other functions
+ - composition a.k.a higher order functions
+	 a function that takes two functions as parameters and produces another function as its return value
+	 in math the composition operator o is defined as (g o f)(x)= g(f(x))
+	Functions are First Class Data Values - means that functions can be used as parameters and can be computed within a function.
+
+Day 8:
+	 - Lambda Expressions in functional programming languages
+		 - expressions describe nameless temporary functions.
+		 - can have any number of parameters
+		 - example (Scheme Syntax): lambda<formals><body>
+	 - Higher Order Functions: functions that take other functions as parameters and produce another function as return value
+	 - Scope
+		 - Static Scoping: meaning or value of a variable can be determined by reading the source code
+		 - Dynamic Scoping: 
+	 - Tail Recursion: A function is tail recursive if its recursive call is the last operation in the function
+	 
+Day 9:
+	LIST: is a function for building a list from any number of parameters
+	CONS: returns a list constructed from those arguments
+	CAR: returns the first element of a list
+	CDR: returns a sublist containing all elements except the first
+	
+Day 10:
+	Formal Logic
+	First-order predicate calculus
+		Proposition: statement that may or may not be true
+		Axioms: logical statements that are assumed to be true and from which other true statements can be proved
+	

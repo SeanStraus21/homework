@@ -1,0 +1,18 @@
+Packet Contents: 1 17:05:25.080000
+RTT:0.001
+Packet Contents: 2 17:05:25.081000
+RTT:0.002
+Packet Contents: 3 17:05:25.081000
+RTT:0.003
+Packet Contents: 4 17:05:25.081000
+RTT:0.001
+Request timed out
+Packet Contents: 6 17:05:26.081000
+RTT:0.002
+Packet Contents: 7 17:05:26.081000
+RTT:0.002
+Packet Contents: 8 17:05:26.081000
+RTT:0.002
+Packet Contents: 9 17:05:26.081000
+RTT:0.002
+Request timed out

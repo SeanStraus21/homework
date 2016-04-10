@@ -1,0 +1,108 @@
+﻿/*
+Sean Straus
+Straus21
+
+employee (employee name, street, city)
+works (employee name, company name, salary)
+company (company name, city)
+manages (employee name, manager name)
+
+1.
+Give an SQL schema deﬁnition for the employee database of Figure 3.20.
+Choose an appropriate domain for each attribute and an appropriate primary key for each relation schema.
+
+2.
+Populate the tables you created for the previous question with data. Be careful about the order you populate the tables with data.
+
+3.Consider the employee database of Figure 3.20, where the primary keys are
+ underlined. Give an expression in SQL for each of the following queries.
+	a. Find the names of all employees who work for “First Bank Corporation”.
+	b. Find all employees in the database who live in the same cities as the
+	companies for which they work.
+	c. Find all employees in the database who live in the same cities and on
+	the same streets as do their managers.
+*/
+
+
+create table employee
+    (
+	employee_name varchar(32),
+	street varchar(32),
+	city varchar(32),
+    primary key (employee_name)
+    );
+
+create table works
+	(
+	employee_name varchar(32),
+	company_name varchar(32),
+	salary numeric(12,2),
+    primary key (employee_name)
+	);
+create table company
+	(
+	company_name varchar(32),
+	city varchar(32),
+    primary key(company_name)
+	);
+create table manages
+	(
+	employee_name varchar(32),
+	manager_name varchar(32),
+    primary key(employee_name)
+	);
+
+insert into employee values ("joe blow", "main street 21", "springfield");
+insert into employee values ("john doe", "grand ave 22", "chicago");
+insert into employee values ("haggis mcmutton", "king street", "springfield");
+insert into employee values ("jim brown", "farm road 23", "kansas city");
+insert into employee values ("albert wesker", "farm road 23", "kansas city");
+insert into employee values ("william berkin", "farm road 23", "kansas city");
+
+insert into company values("umbrella inc.", "chicago");
+insert into company values("First Bank Corporation", "springfield");
+
+insert into works values("joe blow", "First Bank Corporation", '400');
+insert into works values("haggis mcmutton", "First Bank Corporation", '800');
+insert into works values("john doe", "umbrella inc.", '400');
+insert into works values("jim brown", "umbrella inc.", '400');
+insert into works values("albert wesker", "umbrella inc.", '800');
+insert into works values("william berkin", "umbrella inc.", '800');
+
+insert into manages values("joe blow","haggis mcmutton");
+insert into manages values("haggis mcmutton","haggis mcmutton");
+insert into manages values("john doe","albert wesker");
+insert into manages values("jim brown","albert wesker");
+insert into manages values("william berkin","albert wesker");
+insert into manages values("albert wesker","albert wesker");
+
+/*A. Find the names of all employees who work for “First Bank Corporation”.*/
+
+select employee_name from works where company_name = "First Bank Corporation";
+
+/*B. Find all employees in the database who live in the same cities as the
+	companies for which they work.*/
+
+select employee_name 
+from 
+	(
+	select employee.employee_name,city,company_name
+	from employee 
+	inner join works 
+	on employee.employee_name = works.employee_name
+	) as A
+inner join company 
+	on A.city = company.city;
+
+
+/*C. Find all employees in the database who live in the same cities and on
+	the same streets as do their managers.*/
+	
+select a.employee_name
+from manages b
+  inner join employee c
+  on b.manager_name = c.employee_name
+  inner join employee a
+  on b.employee_name = a.employee_name
+where c.city = a.city and c.street = a.street
+;

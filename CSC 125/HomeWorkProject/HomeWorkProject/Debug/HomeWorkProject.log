@@ -1,0 +1,25 @@
+﻿Build started 2/7/2014 9:56:10 AM.
+     1>Project "E:\Documents\C++ Homework\HomeWorkProject\HomeWorkProject\HomeWorkProject.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Homework3.cpp
+         Homework3.cpp
+     1>e:\documents\c++ homework\homework3.cpp(25): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(26): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(29): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(30): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(31): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(32): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(33): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(34): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(35): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(36): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(37): warning C4309: 'initializing' : truncation of constant value
+     1>e:\documents\c++ homework\homework3.cpp(38): warning C4309: 'initializing' : truncation of constant value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Documents\C++ Homework\HomeWorkProject\Debug\HomeWorkProject.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Documents\C++ Homework\HomeWorkProject\Debug\HomeWorkProject.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Documents\C++ Homework\HomeWorkProject\Debug\HomeWorkProject.lib" /MACHINE:X86 Debug\Homework3.obj
+         HomeWorkProject.vcxproj -> E:\Documents\C++ Homework\HomeWorkProject\Debug\HomeWorkProject.exe
+     1>Done Building Project "E:\Documents\C++ Homework\HomeWorkProject\HomeWorkProject\HomeWorkProject.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.01

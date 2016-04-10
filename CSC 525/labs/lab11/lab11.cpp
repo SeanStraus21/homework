@@ -1,0 +1,245 @@
+/*==================================================================================================
+ PROGRAMMER:			Yang Wang
+ COURSE:				CSC 525/625
+ MODIFIED BY:			Sean Straus
+ LAST MODIFIED DATE:	9/09/2015
+ DESCRIPTION:			Demo: drawing points.
+ NOTE:					N/A
+ FILES:					points.cpp, (myCPPproj.sln, ...)
+ IDE/COMPILER:			MicroSoft Visual Studio 2013
+ INSTRUCTION FOR COMPILATION AND EXECUTION:
+	1.		Double click on myCPPproj.sln	to OPEN the project
+	2.		Press Ctrl+F7					to COMPILE
+	3.		Press Ctrl+Shift+B				to BUILD (COMPILE+LINK)
+	4.		Press Ctrl+F5					to EXECUTE
+==================================================================================================*/
+#include <iostream>
+#include <string>
+#include <GL/glut.h>				// include GLUT library
+#include <cmath>
+#include <vector>
+using namespace std;
+//***********************************************************************************
+
+//global variable
+int mouse_x = 0;
+int mouse_y = 0;
+bool mouse_btn = 0;//0 is left, 1 is right
+bool left_down = true;
+bool right_down = true;
+vector<unsigned char> user_string;
+int menu_id;
+int submenu_color;
+int submenu_font;
+int value = 0;
+float color[] = {0.0, 0.0, 0.0};
+void* font = GLUT_BITMAP_TIMES_ROMAN_10;
+bool helping = false;
+
+void menu(int x){
+	switch (x){
+	case 1:
+		color[0] = 1;
+		color[1] = 0;
+		color[2] = 0;
+		break;
+	case 2:
+		color[0] = 0;
+		color[1] = 0;
+		color[2] = 0;
+		break;
+	case 3:
+		font = GLUT_BITMAP_TIMES_ROMAN_10;
+		break;
+	case 4:
+		font = GLUT_BITMAP_HELVETICA_10;
+		break;
+	case 5:
+		helping = true;
+		break;
+	}
+}
+
+void menu_create(void){
+	int color_menu = glutCreateMenu(menu);
+	glutAddMenuEntry("Red", 1);
+	glutAddMenuEntry("Black", 2);
+
+	int font_menu = glutCreateMenu(menu);
+	glutAddMenuEntry("Times New Roman", 3);
+	glutAddMenuEntry("Helvetica", 4);
+
+	int crnt_menu = glutCreateMenu(menu);
+	glutAddMenuEntry("Help", 5);
+	glutAddSubMenu("Color", color_menu);
+	glutAddSubMenu("Font", font_menu);
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+}
+
+void keyboard_thing(unsigned char key, int x, int y){
+	user_string.push_back(key);
+}
+
+void mouse_thing(int button, int state, int x, int y){
+	switch (button){
+	case GLUT_LEFT_BUTTON:
+		if (state == GLUT_DOWN){
+			mouse_btn = 0;
+			left_down = true;
+		}
+		else {
+			left_down = false;
+		}
+		break;
+	case GLUT_RIGHT_BUTTON:
+		if (state == GLUT_DOWN){
+			mouse_btn = 1;
+			right_down = true;
+		}
+		else{
+			right_down = false;
+		}
+		break;
+	}
+}
+void mouse_window_kill(int button, int state, int x, int y){
+	if (GLUT_LEFT_BUTTON){
+		helping = false;
+	}
+}
+
+void other_mouse_thing(int x, int y){
+	if (right_down || left_down){
+		mouse_x = x;
+		mouse_y = y;
+	}
+}
+
+void drawPoints()
+{
+	int l;
+	glLineWidth(1);//set width
+	glPointSize(1);//set pointsize
+
+
+	glColor3f(color[0],color[1],color[2]);
+	//draw bitmap
+	glBegin(GL_POINT);
+	l = user_string.size();
+		for (int i = 0; i < l; i++){
+
+			glRasterPos2s(-200 + mouse_x + 10*i, 200 - mouse_y);
+			glutBitmapCharacter(font, user_string[i]);
+		}
+	glEnd();
+	//Draw Text
+	//glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_10, text);
+	
+	//draw axis labels
+	glRasterPos2s(0, 0);
+	glColor3f(0, 0, 0);
+	
+	glBegin(GL_POINT);
+	glRasterPos2s(152, 0);
+	glColor3f(0, 0, 0);
+	glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, 'X');
+	glRasterPos2s(-2, 152);
+	glColor3f(0, 255, 0);
+	glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, 'Y');
+	glEnd();
+
+
+	//draw axes
+	glPointSize(1);		// change point size back to 1
+
+	glBegin(GL_POINTS);	// use points to form X-/Y-axes
+	glColor3f(0, 0, 0);			 // change drawing color to black
+	for (int x = -150; x <= 150; x++) // draw X-axis
+		glVertex2i(x, 0);
+	for (int y = -150; y <= 150; y++) // draw Y-axis
+		glVertex2i(0, y);
+	glEnd();
+
+	glutPostRedisplay();
+}
+
+void drawHelp(){
+	if (helping){
+		glutShowWindow();
+	}
+	else{
+		glutHideWindow();
+	}
+	string help_string = "Hi, if you need help getting out of this window, click the mouse button";
+	glBegin(GL_POINT);
+	int l = help_string.length();
+	for (int i = 0; i < l; i++){
+
+		glRasterPos2s(-200 + mouse_x + 10 * i, 200 - mouse_y);
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, help_string[i]);
+	}
+	glEnd();
+
+	glPointSize(1);		// change point size back to 1
+
+	glBegin(GL_POINTS);	// use points to form X-/Y-axes
+	glColor3f(0, 0, 0);			 // change drawing color to black
+	for (int x = -150; x <= 150; x++) // draw X-axis
+		glVertex2i(x, 0);
+	for (int y = -150; y <= 150; y++) // draw Y-axis
+		glVertex2i(0, y);
+	glEnd();
+
+	glutPostRedisplay();
+}
+
+//***********************************************************************************
+void myInit()
+{glClearColor(1, 1, 1, 0);			// specify a background clor: white 
+ gluOrtho2D(-200, 200, -200, 200);  // specify a viewing area
+}
+
+//***********************************************************************************
+void myDisplayCallback()
+{glClear(GL_COLOR_BUFFER_BIT);	// draw the background
+
+ drawPoints();
+
+ glFlush(); // flush out the buffer contents
+}
+void myDisplayCallback2()
+{
+	glClear(GL_COLOR_BUFFER_BIT);	// draw the background
+
+	drawHelp();
+
+	glFlush(); // flush out the buffer contents
+}
+//***********************************************************************************
+void main(int argc, char ** argv)
+{
+	GLint win1, win2;
+
+ glutInit(& argc, argv);
+
+ glutInitWindowSize(400, 400);				// specify a window size
+ glutInitWindowPosition(100, 0);			// specify a window position
+ win1 = glutCreateWindow("Simple Point Drawing");	// create a titled window
+
+
+ myInit();									// setting up
+ 
+ menu_create();
+ glutKeyboardFunc(keyboard_thing);
+ glutMouseFunc(mouse_thing);
+ glutMotionFunc(other_mouse_thing);
+ glutDisplayFunc(myDisplayCallback);		// register a callback
+
+ glutInitWindowSize(400, 400);				// specify a window size
+ glutInitWindowPosition(500, 0);
+ win2 = glutCreateWindow("Help");	// create a titled window
+ glutMouseFunc(mouse_window_kill);
+ glutDisplayFunc(myDisplayCallback2);
+
+ glutMainLoop();							// get into an infinite loop
+}

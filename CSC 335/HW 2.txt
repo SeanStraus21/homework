@@ -1,0 +1,18 @@
+Sean Straus
+CSC 335
+
+1.
+	a. [pi]name([sigma]city="Brooklyn"(employee))
+	b. [pi]name,city([sigma]salary >= $50,000((employee x works)))
+	c. [pi]name(([sigma]company_name = "Fedco"([sigma]salary >= 50,000(works))))
+	d. [pi]name,city([pi](employee)x([sigma]city="Brooklyn"(company)))
+	e. manager_nameGcount-distinct([sigma](manager_name)(manages)
+	f. [pi]name([sigma]salary > (Gmax [sigma]company_name="small bank corp"(works))(works))
+
+2.
+	6.14
+		a. [pi]name(([pi]memb_no,name(member))x((borrowed)x([pi]isbn([sigma]publisher="mcgrawhill"(books))))) 
+		b. [pi]name([sigma](Gcount-distinct([sigma]publisher="mcgrawhill"(books x borrowed)) =(Gcount([sigma]publisher="mcgrawhill"(books))))(member x borrowed))
+		c. [pi]name,memb_no((memb_noGcount-distinct([sigma]publisher=mcgrawhill(booksxborrowed))>5(borrowed x books))x member)
+		d. [pi]name,memb_no((memb_noGcount([sigma]publisher=mcgrawhill(booksxborrowed))>5(borrowed x books))x member)
+

@@ -1,0 +1,27 @@
+/*
+Sean Straus
+Straus21
+Extra Features: background image, favicon
+*/
+a	{
+	color:#A4A400;
+	}
+
+body{
+	background-image: url("http://www.cs.washington.edu/education/courses/cse190m/12sp/homework/1/silverware.jpg");
+	}
+
+h3	{
+	color:#A4A400; 
+	background-color:#F0F0F0;
+	font-family:"lucida sans unicode",helvetica,arial,sans-serif;
+	font-size:18pt;
+	text-decoration:underline;
+	font-style:normal;
+	}
+
+p	{
+	color:#404040;
+	font-family:georgia,garamond,serif;
+	font-size:11pt;
+	}

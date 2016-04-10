@@ -1,0 +1,13 @@
+﻿Build started 11/18/2015 11:20:59 AM.
+     1>Project "\\eccentric\Class\CSC-525-625\001\Straus21\labs\labProject\labProject\labProject.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\lab14\lab14.cpp
+         lab14.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"\\eccentric\Class\CSC-525-625\001\Straus21\labs\labProject\Debug\labProject.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"\\eccentric\Class\CSC-525-625\001\Straus21\labs\labProject\Debug\labProject.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"\\eccentric\Class\CSC-525-625\001\Straus21\labs\labProject\Debug\labProject.lib" /MACHINE:X86 Debug\lab14.obj
+         labProject.vcxproj -> \\eccentric\Class\CSC-525-625\001\Straus21\labs\labProject\Debug\labProject.exe
+     1>Done Building Project "\\eccentric\Class\CSC-525-625\001\Straus21\labs\labProject\labProject\labProject.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.20

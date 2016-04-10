@@ -1,0 +1,62 @@
+Sean Straus
+Straus21
+
+1. Use Armstrong’s axioms to prove the soundness of the decomposition rule.
+	the decomposition rule states:if X → YZ, then X → Y and X → Z
+	by the reflexive axiom, since Y and Z are included in YZ, YZ → Y and YZ → Z
+	by transitivity, X → YZ, and YZ → Y and Z, X → Y and X → Z
+	
+
+2. Consider the following set F of functional dependencies on the relation
+			schema r (A, B, C, D, E, F ):
+			A → BCD
+			BC → DE
+			B → D
+			D → A
+	a) Compute B+
+		B
+		BD // B → D
+		ABD //BD → A
+		ABCD //ABD → BCD
+		ABCDE //ABCD → DE
+		no further changes can be made, so
+		B+ = ABCDE
+	b) Prove (using Armstrong’s axioms) that AF is a superkey.
+		AF is a superkey if AF → ABCDEF
+		by reflexivity, AF → AF
+		A → BC and BC → DE, so by transitivity A → DE
+		A → BCD A → BCDE, so by augmentation AF → ABCDEF
+		therefore AF is a superkey
+	c) Compute a canonical cover for the above set of functional dependencies F ; give each step of your derivation with an explanation.
+		r = (A,B,C,D,E,F);	F = {A → BCD, BC → DE, B → D, D → A} //starting values
+		D is extraneous in A → BCD, so remove it {A → BC, BC → DE, B → D, D → A}
+		D is extraneous in BC → DE, so remove it {A → BC, BC → E, B → D, D → A}
+		no further change is possible, so
+		canonical cover of F = {A → BC, BC → E, B → D, D → A}
+	d) Give a 3NF decomposition of r based on the canonical cover.
+		F+ = {A → BC, BC → E, B → D, D → A}
+		The Tables Are:
+		(A,BC)
+		(BC,E)
+		(B,D)
+		(D,A)
+		
+	e) Give a BCNF decomposition of r using the original set of functional
+	dependencies.
+		r = (A,B,C,D,E,F);	F = {A → BCD, BC → DE, B → D, D → A}
+		key = {A,F}
+		A → BCD,
+		A is not a superkey
+		r[1] = (A,B,C,D)
+		r = (A,B,C,E,F)
+		BC → E, BC is not a superkey
+		r[2] = (B,C,E)
+		r = (A,F)
+		(A,F) is a superkey
+		the tables are:
+		(A,B,C,D)
+		(B,C,E)
+		(A,F)
+	f) Can you get the same BCNF decomposition of r as above, using the
+	canonical cover?
+		yes

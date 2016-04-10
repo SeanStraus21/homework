@@ -1,0 +1,19 @@
+/*
+Sean Straus
+Straus21
+
+[20 points] Consider the database given in Figure 4.12, page 155 of the text. Create an SQL assertion that ensures that every name that appears in the relation address appears in either salaried_worker or hourly_worker, but not necessarily in both. 
+
+[30 points] Suppose you are given a relation emp(empid, dept, salary) and wish to maintain a materialized view deptsalary(dept, totalsalary) which stores the total salary for all employees of each department. Suppose the system does not support materialized views but supports triggers. Write SQL trigger(s) on insert on emp to keep the relation deptsalary up to date. Do not worry about deletes or updates. You can assume that there is already a tuple for each department in deptsalary so you do not need to worry about new deparments.  (Note: if you solve this question using Oracle, do not create a view for deptsalary, just create a table for it.)
+*/
+
+
+create constraint has_address
+check ((select name from address) in (select name from salaried_worker) || (select name from address) in (select name from hourly_worker))
+;
+
+create trigger pseudo_view
+after insert on emp
+update table deptsalary
+end
+;

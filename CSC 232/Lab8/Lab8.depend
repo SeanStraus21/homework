@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1413948163 source:c:\users\sean\documents\homework\lab8\lab8provided.cpp
+	<cstdlib>
+	<iostream>
+	<string>
+	<vector>
+	<time.h>
+

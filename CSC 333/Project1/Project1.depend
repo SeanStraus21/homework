@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1457029219 source:c:\users\sean\homework\csc 333\project1\scanner.cpp
+	<string>
+	<vector>
+	<iostream>
+
+1457987934 source:c:\users\sean\homework\csc 333\project1\analyzermain.cpp
+	<string>
+	<iostream>
+	<stdlib.h>
+	<vector>
+	"frontend.h"
+
+1457976522 c:\users\sean\homework\csc 333\project1\semanticanalysis.cpp
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+
+1457976522 c:\users\sean\homework\csc 333\project1\tokencreator.cpp
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+
+1457118541 c:\users\sean\homework\csc 333\project1\scanner.cpp
+	<string>
+	<vector>
+	<iostream>
+
+1457976568 c:\users\sean\homework\csc 333\project1\expressionparser.cpp
+	<string>
+	<vector>
+
+1457969780 source:c:\users\sean\homework\csc 333\project1\semanticanalysis.cpp
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+	"tokenCreator.cpp"
+	"scanner.cpp"
+
+1457969845 source:c:\users\sean\homework\csc 333\project1\tokencreator.cpp
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+
+1457987328 c:\users\sean\homework\csc 333\project1\frontend.h
+	"scanner.h"
+	"TokenCreator2.h"
+	"SemanticAnalysis.h"
+	"expressionParser.h"
+
+1457980623 c:\users\sean\homework\csc 333\project1\scanner.h
+	<string>
+	<vector>
+	<iostream>
+
+1457982959 c:\users\sean\homework\csc 333\project1\tokencreator.h
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+
+1457987980 c:\users\sean\homework\csc 333\project1\semanticanalysis.h
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+
+1457985060 c:\users\sean\homework\csc 333\project1\expressionparser.h
+	<string>
+	<vector>
+
+1457987843 c:\users\sean\homework\csc 333\project1\tokencreator2.h
+	<string>
+	<vector>
+	<cstring>
+	<cctype>
+	<cstdlib>
+	<iostream>
+	<locale>
+

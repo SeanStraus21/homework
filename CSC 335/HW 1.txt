@@ -1,0 +1,70 @@
+Sean Straus
+CSC 335
+
+1.10 
+List five responsibilities of a database-management system. For each responsibility, explain the problems that would arise if the responsibility were not discharged.
+
+Answer:
+	1. provide abstract view of data: if data were provided in its raw form, it would become inconvenient for ordinary users to view. It would also become more difficult to implement security systems.
+	2. eliminate data redundancy: if the same information is stored in multiple physical locations, this could potentially lead to inconsistencies and anomalous behavior.
+	3. insure atomicity in transactions: if transactions are not atomic, then in the case of a systems failure may result in an incomplete transaction, resulting in errors.
+	4. limit access to data depending on the user: it is frequently undesirable for a single user to have access to all the information in a database. Not only is some information meant to be classified, but most users are only interested in a small segment of data.
+	5. provide structure for storing data: if the data is not stored in a well-designed data-structure, searching for certain pieces of data would be much slower than neccessary.
+
+1.12
+Explain what problems are caused by the design of the table in Figure 1.4.
+
+Answer:
+	There are too many fields crammed into one table, leading to data redundancies. For instance, department budget and building are repeated each time a teacher is listed who belongs to a department. The table should be broken down into two smaller tables.
+
+2.9
+Consider the bank database of Figure 2.15.
+a. What are the appropriate primary keys?
+b. Given your choice of primary keys, identify appropriate foreign keys.
+
+Answer:
+	a. branch_name*,customer_name*,loan_number,loan_number,account_number,account_number
+	b.none,none,branch_name,customer_name,branch_name,customer_name
+
+
+
+2.10
+Consider the advisor relation shown in Figure 2.8, with s_id as the primary
+key of advisor. Suppose a student can have more than one advisor. Then,
+would s_id still be a primary key of the advisor relation? If not, what should
+the primary key of advisor be?
+
+answer:(s_id,t_id)
+
+
+Draw a schema diagram for the database in Figure 2.14, page 53 of the textbook.
+
+*= primary key
+	EMPLOYEE:		WORKS:				COMPANY:
+	person_name*--->person_name*		city
+	street			company_name<-------company_name*
+	city			salary				
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

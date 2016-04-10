@@ -1,0 +1,39 @@
+﻿Build started 11/10/2015 5:10:29 PM.
+     1>Project "C:\Users\Sean\Homework\CSC 525\labs\labProject\Dependencies\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake is re-running because generate.stamp.list is missing.
+         -- Building for: Visual Studio 12 2013
+         -- Found OpenGL: opengl32  
+         -- Looking for include file sys/types.h
+         -- Looking for include file sys/types.h - found
+         -- Looking for include file unistd.h
+         -- Looking for include file unistd.h - not found
+         -- Looking for include file sys/time.h
+         -- Looking for include file sys/time.h - not found
+         -- Looking for include file stdbool.h
+         -- Looking for include file stdbool.h - found
+         -- Looking for include file sys/param.h
+         -- Looking for include file sys/param.h - not found
+         -- Looking for include file sys/ioctl.h
+         -- Looking for include file sys/ioctl.h - not found
+         -- Looking for include file fcntl.h
+         -- Looking for include file fcntl.h - found
+         -- Looking for include file usbhid.h
+         -- Looking for include file usbhid.h - not found
+         -- Looking for gettimeofday
+         -- Looking for gettimeofday - not found
+         -- Looking for XParseGeometry
+         -- Looking for XParseGeometry - not found
+         -- Looking for include file stdint.h
+         -- Looking for include file stdint.h - found
+         -- Looking for include file inttypes.h
+         -- Looking for include file inttypes.h - found
+         -- Configuring done
+         -- Generating done
+         -- Build files have been written to: C:/Users/Sean
+     1>Done Building Project "C:\Users\Sean\Homework\CSC 525\labs\labProject\Dependencies\ZERO_CHECK.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:16.13

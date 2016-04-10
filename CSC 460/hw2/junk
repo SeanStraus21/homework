@@ -1,0 +1,75 @@
+#!/bin/bash
+#   COURSE: CSC-460, assignment 2
+#   PROGRAMMERS: Sean Straus (ss), Di Wu(dw)
+#   MODIFIED BY:
+#   LAST MODIFIED DATE: 02/17/2016
+#   DESCRIPTION: A recycle bin simulator
+#   NOTE:
+#   FILES: junk
+#   INSTRUCTION FOR EXECUTION:
+#       junk [-l/-p] [file1 file2 ...]
+#   Percentage of team members:
+#   Sean Straus: 50% create junk file
+#   Di Wu: 50% junk fix bugs & test
+
+if [ "$#" = 0 ]
+then
+    echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    echo " "
+    echo "Synopsis: "
+    echo "junk [ -l | -p ] [ fileName1 fileName2 ... ]"
+    echo "option -l displays contents of the RecycleBin if it exists"
+    echo "option -p removes contents of the RecycleBin if it exists"
+    echo " "
+    echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+else
+    if [ "$1" = "-l" ]
+    then
+        if [ ! -e $HOME/RecycleBin ]
+        then
+            #display contents of recycle bin
+            echo "Directory RecycleBin does not exist."
+        else
+            for file in $HOME/RecycleBin
+            do
+                echo "----------------------"
+                ls $file
+                echo "----------------------"
+            done
+        fi
+
+    elif [ "$1" = "-p" ]
+    then
+        #delete contents of recycle bin
+        if [ ! -e $HOME/RecycleBin ]
+        then
+            echo "Directory RecycleBin does not exist."
+        else
+            for file in $HOME/RecycleBin/*
+            do
+                if [ -d $file ]
+                then
+                    rmdir $file
+                else rm $file
+                fi
+            done
+        fi
+
+    else
+        #add files to recycle bin
+        if [ ! -d $HOME/RecycleBin ]
+        then
+            if [ -e $HOME/RecycleBin ]
+            then
+                echo "Error: RecycleBin is not a directory. delete the file named RecycleBin"
+                exit 0
+            else
+                mkdir $HOME/RecycleBin
+            fi
+        fi
+        for i in $@
+        do
+            mv $i $HOME/RecycleBin
+        done
+    fi
+fi

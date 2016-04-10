@@ -1,0 +1,99 @@
+/*
+Sean Straus
+Straus21
+*/
+
+body	{
+		font-size:8pt;
+		background-image:url("http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/bannerbg.png"),url("http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/background.png");
+		background-repeat: repeat-x,repeat;
+		}
+	
+div#banner	{
+			position:absolute;
+			top:0;
+			width:100%;
+			}
+
+div#banner-interior 	{
+					height:50px;
+					width:795px;
+					margin:0 auto;
+					padding:0px;
+					border:0px;
+					}
+					
+div#columns	{
+			padding:0;
+			margin:0;
+			float:right-top;
+			}
+
+div#column-left
+			{
+			float:left;
+			margin-left:2%;
+			margin-right:2%;
+			width:47%;
+			}
+
+div#column-right
+			{
+			float:left;
+			margin-right:2%;
+			width:47%;
+			}
+
+div#main		{
+			position:relative;
+			top:125px;
+			left:0 auto;
+			right:0 auto;
+			width:800px;
+			border-style:solid;
+			padding:0;
+			border-color:gray;
+			border-radius:20px;
+			margin-right:0 auto;
+			margin-left:0 auto;
+			}
+			
+div#reviews	{
+			background-image: url("http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/rbg.png");
+			background-repeat: repeat-x;
+			float:left;
+			width:550px;
+			padding:0;
+			margin:0;
+			}
+			
+div#sidebar	{
+			background-color:#A2B964;
+			float:left;
+			width:250px;
+			}
+			
+div#sidebar-interior	{
+					background-color:#A2B964;
+					font-style:bold;
+					}
+
+h1			{
+			text-align:center;
+			font-size:24pt;
+			font-family:verdana,tahoma,sans-serif;
+			text-shadow: 3px 3px #999999;
+			font-style:bold;
+			}
+
+
+	
+#p1	{
+	border-style:solid;
+	padding:8px;
+	border-width:2px;
+	border-color:#333333;
+	border-radius:10px;
+	font-style:bold;
+	background-color:#E8DC9B;
+	}

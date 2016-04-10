@@ -1,0 +1,181 @@
+ORIGINAL
+Let A[1...n] be an array of n distinct numbers. If i < j and A[i] > A[j], then the pair(i,j)is called an inversion of A
+for (i=0;i < (size-1);i++)
+	{
+	for (j = i+1; j < size; j++)
+		{
+		if A[i] > A[j]
+			{
+			cout << "(" i "," j ")"; endl;
+			}
+		}
+	}
+MODIFIED
+for (i < A.size)// A.size = B.size
+	{
+	for (j = i; j < A.size; j++)
+		{
+		if A[i] > B[j]
+			{
+			cout << "(" i "," j ")"; endl;
+			}
+		}
+	}
+  A         B
+0 1 2  -> 3 4 5
+x y z     a b c
+x -> a // if x is greater than a, count the inversion and store a at A[0]. else: store x at A[0] and stop
+	x -> b // 
+		x -> c // 
+y -> a // if y is here, x is there
+y -> c
+z -> c
+linear
+So what are we actually trying to do? the question is stupidly ambiguous. Shade's notes give a hint though.
+	Merge the two halves from B back into A, also counting the inversions *between* the two halves, where one element is in the left half and the other is in the right half. (The inversions within each half have already been counted via the recursive calls.) You must count the inversions between the halves in linear time, i.e., O(r - p + 1). You can exploit the fact that the two halves are sorted.
+1. merge B into A
+2. count inversions between B & A (both are sorted and counted, so you just need to sort and count the halves)
+3. take one element from B and one element from A and compare
+
+take the first element from Ba and compare to the first element in Bb.
+pop the smaller value and put it in A[0]
+
+
+Recursive Explanation
+	So we're counting these inversions WHILE we sort the list. 
+	
+in a sorted list, the number of inversions goes like this
+
+1 2 3 4
+=
+2,1
+3,1
+4,1
+3,2
+4,2
+4,3
+Ba	 Bb		A
+x -> a		x
+y -> a		a
+y -> b		b
+y -> 
+
+so clearly I'm misunderstanding something
+
+base case: there are two arrays of size one, if the right one > left one, its an inversion. either way, put the smaller one in front of the bigger one.
+I think the key is to understand these mysterious variables p,r, and q 
+
+Shade's trick isn't showing me everything I need to know. I'm going to do it the dumb way.
+
+A = a,b,c,d,e,f
+B = a,b,c
+C = 
+a,b,c <-> d,e,f
+
+
+a <-> b = a,b || b,a
+
+get smaller array
+	get smaller array
+		the array is size 1
+	merge that array
+merge that array
+
+How would I do it from scratch?
+	
+mergesort(X)
+	{
+	if base_case 
+		{
+		return X
+		}
+	else
+		{
+		A = mergesort(first half)
+		B = mergesort(second half)
+		C = merge(A,B)
+		}
+	return C;
+	}
+
+merge (A,B)
+	{
+	vector<int> C;
+	j = k = 0
+	for (i=0;i<A.size+B.size;i++)
+		{
+		if A[j] <= B[k]
+			{
+			C[i] = A[j]
+			j++
+			//this is where it would be handy to have that sentinel card
+			if j > A.size()
+				{
+				i++
+				for (;k<B.size;k++)
+					{
+					C[i] = B[k];
+					i++
+					}
+				break;
+				}
+			}
+		else
+			{
+			C[i] = B[k]
+			k++
+			//this is another place it would be handy to have that sentinel card
+			if k > B.size()
+				{
+				i++
+				for (;j<A.size;j++)
+					{
+					C[i] = A[j];
+					i++
+					}
+				break;
+				}
+			}
+		}
+	return C;
+	}
+	
+yep, that's how I would do it. How is shade doing it? well, for one thing, the smaller callers don't return vectors, they return the inversion counts. 
+I think I see what's going on: 
+p,q, and r are indices of A, which is a global variable. Instead of actually creating new vectors, it uses coordinates to modify a single array. 
+
+
+sort 2 smaller halves
+	sort 2 smaller halves
+	sort 2 smaller halves
+merge that array
+
+Vector<int> X = (so on and so forth)
+mergesort(subarray_begin,subarray_end)
+	{
+	if base_case 
+		{
+		return 0
+		}
+	else
+		{
+		a = mergesort(first_half_begin,first_half_end)
+		b = mergesort(second_half_begin,second_half_end)
+		c = merge&count(first_half_begin,first_half_end,second_half_end)//i.e. merge(p,q,r)
+		}
+	return a+b+c;
+	}
+
+merge&count(p,q,r)
+	{
+	for (i=p;i<r;i++)
+		{
+		//merge subarray(p-q) and subarray(q+1-r)
+		}
+	}
+
+a < b; a > c&d; -> b > c&d
+5 > 0,1,&2
+
+if an array [a,b,c] is sorted least to greatest,
+if b is greater than x, c is greater than x

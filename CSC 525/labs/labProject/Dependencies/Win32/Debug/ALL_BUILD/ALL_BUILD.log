@@ -1,0 +1,10 @@
+﻿Build started 11/10/2015 5:11:08 PM.
+     1>Project "C:\Users\Sean\Homework\CSC 525\labs\labProject\Dependencies\ALL_BUILD.vcxproj" on node 3 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Users/Sean/Downloads/freeglut-3.0.0.tar/freeglut-3.0.0/freeglut-3.0.0/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\Sean\CMakeFiles\generate.stamp is up-to-date.
+     1>Done Building Project "C:\Users\Sean\Homework\CSC 525\labs\labProject\Dependencies\ALL_BUILD.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.20
